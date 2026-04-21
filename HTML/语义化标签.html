@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5语义化标签</title>
+</head>
+<body>
+    <h1>HTML5语义化标签</h1>
+    
+    <h2>1. 结构语义化标签</h2>
+    
+    <h3>header（页眉）</h3>
+    <header>
+        <h1>网站标题</h1>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">关于</a>
+            <a href="#">联系</a>
+        </nav>
+    </header>
+    <p>说明：header定义文档或区域的头部，通常包含标题、导航、logo等</p>
+    
+    <h3>nav（导航）</h3>
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#products">产品</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </nav>
+    <p>说明：nav专门包裹导航链接，帮助搜索引擎和屏幕阅读器识别导航区域</p>
+    
+    <h3>main（主要内容）</h3>
+    <main>
+        <h2>页面主要内容</h2>
+        <p>每个页面只能有一个main元素，包含页面的核心内容。</p>
+    </main>
+    <p>说明：main标识页面的主要内容区域，一个页面只能使用一次</p>
+    
+    <h3>section（章节/区块）</h3>
+    <section>
+        <h2>第一章</h2>
+        <p>这是第一个章节的内容。</p>
+    </section>
+    <section>
+        <h2>第二章</h2>
+        <p>这是第二个章节的内容。</p>
+    </section>
+    <p>说明：section表示文档中的一个独立章节或主题区块，应有标题</p>
+    
+    <h3>article（文章）</h3>
+    <article>
+        <h2>博客文章标题</h2>
+        <p>这是一篇独立的文章内容，可以单独分发或复用。</p>
+        <footer>
+            <p>作者：张三 | 发布时间：2024-01-01</p>
+        </footer>
+    </article>
+    <p>说明：article表示独立的、完整的内容块，如博客文章、新闻、评论等</p>
+    
+    <h3>aside（侧边栏/附属内容）</h3>
+    <aside>
+        <h3>相关文章</h3>
+        <ul>
+            <li><a href="#">文章1</a></li>
+            <li><a href="#">文章2</a></li>
+        </ul>
+    </aside>
+    <p>说明：aside表示与主内容相关但独立的附属内容，如侧边栏、广告、相关链接</p>
+    
+    <h3>footer（页脚）</h3>
+    <footer>
+        <p>&copy; 2024 公司名称. 保留所有权利。</p>
+        <p>联系方式：email@example.com</p>
+    </footer>
+    <p>说明：footer定义文档或区域的底部，通常包含版权信息、联系方式等</p>
+    
+    <h2>2. 完整页面结构示例</h2>
+    <header>
+        <h1>网站Logo</h1>
+        <nav>导航菜单</nav>
+    </header>
+    
+    <main>
+        <article>
+            <h2>文章标题</h2>
+            <p>文章内容...</p>
+        </article>
+        
+        <aside>
+            <h3>侧边栏</h3>
+            <p>相关内容</p>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>版权信息</p>
+    </footer>
+    <p>说明：这是典型的现代网页布局结构，清晰表达各部分语义</p>
+    
+    <h2>3. 其他语义化标签</h2>
+    
+    <h3>figure / figcaption（图表说明）</h3>
+    <figure>
+        <img src="photo.jpg" alt="风景照片">
+        <figcaption>图1：美丽的日落风景</figcaption>
+    </figure>
+    <p>说明：figure包裹图片、图表等媒体内容，figcaption提供说明文字</p>
+    
+    <h3>mark（高亮文本）</h3>
+    <p>搜索结果中的<mark>关键词</mark>会被高亮显示。</p>
+    <p>说明：mark标记需要突出显示的文本，默认黄色背景</p>
+    
+    <h3>time（时间）</h3>
+    <p>会议时间：<time datetime="2024-01-15T14:30">2024年1月15日下午2:30</time></p>
+    <p>说明：time以机器可读格式标注时间，datetime属性提供标准格式</p>
+    
+    <h3>details / summary（折叠内容）</h3>
+    <details>
+        <summary>点击查看详细信息</summary>
+        <p>这里是隐藏的详细内容，点击后展开。</p>
+    </details>
+    <p>说明：details创建可折叠的内容块，summary是可见的标题</p>
+</body>
+</html>

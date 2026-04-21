@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5文本与排版进阶</title>
+</head>
+<body>
+    <h1>HTML5文本与排版进阶</h1>
+    
+    <h2>1. 强调文本 strong / em</h2>
+    
+    <h3>strong（重要强调）</h3>
+    <p>这是<strong>非常重要</strong>的内容，浏览器默认加粗显示。</p>
+    <p>说明：strong表示内容的重要性，语义上比em更强</p>
+    
+    <h3>em（着重强调）</h3>
+    <p>这是<em>需要强调</em>的内容，浏览器默认斜体显示。</p>
+    <p>说明：em表示内容的着重语气，用于强调语调</p>
+    
+    <h2>2. 删除与插入 del / ins</h2>
+    
+    <h3>del（删除文本）</h3>
+    <p>原价：<del>999元</del></p>
+    <p>说明：del表示被删除的内容，浏览器默认添加删除线</p>
+    
+    <h3>ins（插入文本）</h3>
+    <p>现价：<ins>599元</ins></p>
+    <p>说明：ins表示新插入的内容，浏览器默认添加下划线</p>
+    
+    <h3>组合使用</h3>
+    <p>价格调整：<del>999元</del> <ins>599元</ins></p>
+    <p>说明：常用于显示修改前后的对比</p>
+    
+    <h2>3. 上下标 sub / sup</h2>
+    
+    <h3>sub（下标）</h3>
+    <p>水的化学式：H<sub>2</sub>O</p>
+    <p>说明：sub使文字变小并降低，用于化学式、脚注等</p>
+    
+    <h3>sup（上标）</h3>
+    <p>面积单位：m<sup>2</sup>，体积单位：m<sup>3</sup></p>
+    <p>说明：sup使文字变小并升高，用于数学幂次、商标等</p>
+    
+    <h2>4. 预格式化文本 pre</h2>
+    <pre>
+    function hello() {
+        console.log("Hello");
+        console.log("World");
+    }
+    </pre>
+    <p>说明：pre保留空格和换行，常用于显示代码或诗歌等需要保持格式的内容</p>
+    
+    <h2>5. 引用标签 blockquote / q</h2>
+    
+    <h3>blockquote（块级引用）</h3>
+    <blockquote>
+        <p>学而时习之，不亦说乎？有朋自远方来，不亦乐乎？</p>
+        <cite>——《论语》</cite>
+    </blockquote>
+    <p>说明：blockquote用于长引用，独占一行，通常有缩进效果</p>
+    
+    <h3>q（行内引用）</h3>
+    <p>孔子说：<q>三人行，必有我师焉</q>，这句话广为流传。</p>
+    <p>说明：q用于短引用，嵌入在段落中，浏览器自动添加引号</p>
+    
+    <h2>6. 其他文本标签</h2>
+    
+    <h3>mark（高亮文本）</h3>
+    <p>搜索结果中的<mark>关键词</mark>会被高亮显示。</p>
+    <p>说明：mark标记需要突出显示的文本，默认黄色背景</p>
+    
+    <h3>code（代码片段）</h3>
+    <p>使用<code>&lt;div&gt;</code>标签创建容器。</p>
+    <p>说明：code表示计算机代码，默认等宽字体</p>
+    
+    <h3>small（小号文本）</h3>
+    <p>主要内容<small>（这是补充说明）</small></p>
+    <p>说明：small使文本变小，用于免责声明、版权等次要信息</p>
+</body>
+</html>

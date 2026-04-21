@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5全局属性与进阶用法</title>
+</head>
+<body>
+    <h1>HTML5全局属性与进阶用法</h1>
+    
+    <h2>1. 通用全局属性</h2>
+    
+    <h3>id（唯一标识）</h3>
+    <div id="header">这是头部区域</div>
+    <div id="content">这是内容区域</div>
+    <p>说明：id在页面中必须唯一，常用于CSS样式选择和JavaScript操作</p>
+    
+    <h3>class（类名）</h3>
+    <p class="highlight important">这段文字有多个类名</p>
+    <p class="highlight">这段文字有一个类名</p>
+    <p>说明：class可重复使用，一个元素可有多个类名，用空格分隔</p>
+    
+    <h3>style（内联样式）</h3>
+    <p style="color: red; font-size: 20px;">这是红色大字</p>
+    <p>说明：style直接设置CSS样式，优先级最高，但不推荐大量使用</p>
+    
+    <h3>title（提示文本）</h3>
+    <p title="鼠标悬停时显示的提示文字">把鼠标移到这里看看</p>
+    <p>说明：title属性在鼠标悬停时显示提示信息</p>
+    
+    <h2>2. data-* 自定义数据属性</h2>
+    
+    <h3>存储自定义数据</h3>
+    <div 
+        data-user-id="12345" 
+        data-user-name="张三" 
+        data-role="admin">
+        用户信息
+    </div>
+    <p>说明：data-*属性用于存储页面或应用程序的私有自定义数据</p>
+    
+    <h3>JavaScript访问</h3>
+    <button id="btn" data-action="submit" data-id="99">点击按钮</button>
+    <script>
+        const btn = document.getElementById('btn');
+        console.log(btn.dataset.action); // "submit"
+        console.log(btn.dataset.id); // "99"
+    </script>
+    <p>说明：通过dataset对象访问data-*属性，自动转换连字符为驼峰命名</p>
+    
+    <h2>3. 表单进阶属性</h2>
+    
+    <h3>disabled（禁用）</h3>
+    <form>
+        <input type="text" value="已禁用" disabled>
+        <button type="submit" disabled>不可点击</button>
+    </form>
+    <p>说明：disabled使元素不可交互，不会随表单提交</p>
+    
+    <h3>readonly（只读）</h3>
+    <form>
+        <input type="text" value="只读内容" readonly>
+    </form>
+    <p>说明：readonly使输入框只读，但会随表单提交，可用Tab聚焦</p>
+    
+    <h3>required（必填）</h3>
+    <form>
+        <label>用户名：
+            <input type="text" required placeholder="此项必填">
+        </label>
+        <button type="submit">提交</button>
+    </form>
+    <p>说明：required标记字段为必填，浏览器会自动验证</p>
+    
+    <h3>placeholder（占位符）</h3>
+    <form>
+        <input type="text" placeholder="请输入姓名">
+        <input type="email" placeholder="example@email.com">
+    </form>
+    <p>说明：placeholder提供输入提示，获得焦点后消失</p>
+    
+    <h3>autocomplete（自动完成）</h3>
+    <form autocomplete="on">
+        <input type="text" name="username" autocomplete="username">
+        <input type="password" name="pwd" autocomplete="current-password">
+    </form>
+    <p>说明：autocomplete控制浏览器是否自动填充，on开启/off关闭</p>
+    
+    <h2>4. 链接 target 属性</h2>
+    
+    <h3>_self（当前窗口，默认）</h3>
+    <a href="https://www.example.com" target="_self">在当前窗口打开</a>
+    <p>说明：_self在当前标签页/窗口打开链接，是默认行为</p>
+    
+    <h3>_blank（新窗口）</h3>
+    <a href="https://www.example.com" target="_blank">在新窗口打开</a>
+    <p>说明：_blank在新标签页或窗口打开链接</p>
+    
+    <h3>安全建议：配合 rel 使用</h3>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">安全的新窗口</a>
+    <p>说明：target="_blank"时应添加rel="noopener noreferrer"防止安全风险</p>
+    
+    <h3>其他target值</h3>
+    <a href="page.html" target="_parent">在父框架打开</a><br>
+    <a href="page.html" target="_top">在最顶层框架打开</a>
+    <p>说明：_parent和_top用于iframe嵌套场景</p>
+    
+    <h2>5. 其他常用全局属性</h2>
+    
+    <h3>tabindex（Tab键顺序）</h3>
+    <input type="text" tabindex="1" placeholder="第一个">
+    <input type="text" tabindex="2" placeholder="第二个">
+    <input type="text" tabindex="3" placeholder="第三个">
+    <p>说明：tabindex控制Tab键聚焦顺序，数字越小越先聚焦</p>
+    
+    <h3>hidden（隐藏）</h3>
+    <p hidden>这段文字被隐藏了</p>
+    <p>说明：hidden属性完全隐藏元素，不占用空间，类似display:none</p>
+    
+    <h3>contenteditable（可编辑）</h3>
+    <div contenteditable="true" style="border:1px solid #ccc; padding:10px;">
+        点击这里可以编辑这段文字
+    </div>
+    <p>说明：contenteditable使元素内容可直接编辑，类似文本编辑器</p>
+    
+    <h3>draggable（可拖拽）</h3>
+    <div draggable="true" style="padding:10px; background:#f0f0f0;">
+        这个元素可以拖拽
+    </div>
+    <p>说明：draggable启用HTML5拖拽功能，需配合JavaScript实现完整拖拽逻辑</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5多媒体与嵌入</title>
+</head>
+<body>
+    <h1>HTML5多媒体与嵌入</h1>
+    
+    <h2>1. 音频 audio</h2>
+    
+    <h3>基本音频播放</h3>
+    <audio controls>
+        <source src="music.mp3" type="audio/mpeg">
+        <source src="music.ogg" type="audio/ogg">
+        您的浏览器不支持音频播放。
+    </audio>
+    <p>说明：audio标签嵌入音频，controls显示播放控件，source指定多个格式以兼容不同浏览器</p>
+    
+    <h3>自动播放和循环</h3>
+    <audio controls autoplay loop muted>
+        <source src="background.mp3" type="audio/mpeg">
+    </audio>
+    <p>说明：autoplay自动播放、loop循环播放、muted静音（现代浏览器要求自动播放必须静音）</p>
+    
+    <h2>2. 视频 video</h2>
+    
+    <h3>基本视频播放</h3>
+    <video width="640" height="360" controls>
+        <source src="movie.mp4" type="video/mp4">
+        <source src="movie.webm" type="video/webm">
+        您的浏览器不支持视频播放。
+    </video>
+    <p>说明：video标签嵌入视频，可设置宽高，controls显示播放控件</p>
+    
+    <h3>视频 poster（封面图）</h3>
+    <video width="640" height="360" controls poster="cover.jpg">
+        <source src="demo.mp4" type="video/mp4">
+    </video>
+    <p>说明：poster属性设置视频加载前显示的封面图片</p>
+    
+    <h3>视频预加载</h3>
+    <video controls preload="metadata">
+        <source src="large-video.mp4" type="video/mp4">
+    </video>
+    <p>说明：preload控制预加载行为：auto（全部加载）、metadata（仅元数据）、none（不预加载）</p>
+    
+    <h2>3. iframe 嵌入页面</h2>
+    
+    <h3>嵌入网页</h3>
+    <iframe src="https://www.example.com" width="600" height="400" title="示例网站">
+    </iframe>
+    <p>说明：iframe在当前页面中嵌入另一个HTML页面，可设置宽高</p>
+    
+    <h3>嵌入地图</h3>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18" 
+        width="600" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    <p>说明：常用于嵌入Google地图、百度地图等第三方服务</p>
+    
+    <h3>嵌入视频平台</h3>
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
+    <p>说明：嵌入YouTube、Bilibili等视频平台的视频</p>
+    
+    <h3>iframe安全属性</h3>
+    <iframe 
+        src="page.html" 
+        sandbox="allow-scripts allow-same-origin"
+        width="600" 
+        height="400">
+    </iframe>
+    <p>说明：sandbox限制嵌入页面的权限，提升安全性，可精细控制允许的行为</p>
+    
+    <h2>4. 其他嵌入方式</h2>
+    
+    <h3>embed（通用嵌入）</h3>
+    <embed src="document.pdf" type="application/pdf" width="600" height="400">
+    <p>说明：embed是通用嵌入标签，可嵌入PDF、Flash等多媒体内容</p>
+    
+    <h3>object（对象嵌入）</h3>
+    <object data="document.pdf" type="application/pdf" width="600" height="400">
+        <p>您的浏览器不支持PDF查看。</p>
+    </object>
+    <p>说明：object比embed更强大，支持fallback内容和参数配置</p>
+</body>
+</html>
