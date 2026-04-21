@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5下拉选择框select</title>
+</head>
+<body>
+    <h1>HTML5下拉选择框select</h1>
+    
+    <h3>1. 基本下拉框</h3>
+    <select>
+        <option value="">请选择</option>
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+    </select>
+    <p>说明：select创建下拉框，option定义选项</p>
+    
+    <h3>2. 默认选中</h3>
+    <select>
+        <option value="bj">北京</option>
+        <option value="sh" selected>上海</option>
+        <option value="gz">广州</option>
+    </select>
+    <p>说明：selected属性设置默认选项</p>
+    
+    <h3>3. 禁用选项</h3>
+    <select>
+        <option value="bj">北京</option>
+        <option value="sh" disabled>上海</option>
+        <option value="gz">广州</option>
+    </select>
+    <p>说明：disabled使选项不可选</p>
+    
+    <h3>4. 分组选项</h3>
+    <select>
+        <optgroup label="华北">
+            <option value="bj">北京</option>
+            <option value="tj">天津</option>
+        </optgroup>
+        <optgroup label="华南">
+            <option value="gz">广州</option>
+            <option value="sz">深圳</option>
+        </optgroup>
+    </select>
+    <p>说明：optgroup对选项分组</p>
+    
+    <h3>5. 多选下拉框</h3>
+    <select multiple size="4">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+        <option value="sz">深圳</option>
+    </select>
+    <p>说明：multiple允许多选，size显示行数</p>
+    
+    <h3>6. 带标签的下拉框</h3>
+    <label for="city">选择城市：</label>
+    <select id="city" name="city">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+    </select>
+    <p>说明：label关联提高可访问性</p>
+</body>
+</html>

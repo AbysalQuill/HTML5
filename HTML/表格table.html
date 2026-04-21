@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5表格table</title>
+</head>
+<body>
+    <h1>HTML5表格table</h1>
+    
+    <h3>1. 基本表格</h3>
+    <table border="1">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>城市</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>25</td>
+            <td>北京</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>30</td>
+            <td>上海</td>
+        </tr>
+    </table>
+    <p>说明：table创建表格，tr是行，th是表头，td是单元格</p>
+    
+    <h3>2. 表格标题</h3>
+    <table border="1">
+        <caption>学生信息表</caption>
+        <tr>
+            <th>姓名</th>
+            <th>成绩</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>90</td>
+        </tr>
+    </table>
+    <p>说明：caption定义表格标题</p>
+    
+    <h3>3. 合并单元格</h3>
+    <table border="1">
+        <tr>
+            <th colspan="2">基本信息</th>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>张三</td>
+        </tr>
+        <tr>
+            <td rowspan="2">联系方式</td>
+            <td>电话</td>
+        </tr>
+        <tr>
+            <td>邮箱</td>
+        </tr>
+    </table>
+    <p>说明：colspan横向合并，rowspan纵向合并</p>
+    
+    <h3>4. 表格结构分组</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>表头1</th>
+                <th>表头2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>数据1</td>
+                <td>数据2</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>脚注1</td>
+                <td>脚注2</td>
+            </tr>
+        </tfoot>
+    </table>
+    <p>说明：thead表头、tbody主体、tfoot脚注</p>
+</body>
+</html>

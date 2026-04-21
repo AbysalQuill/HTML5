@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5表单form</title>
+</head>
+<body>
+    <h1>HTML5表单form</h1>
+    
+    <h3>1. 基本表单</h3>
+    <form action="/submit" method="POST">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">提交</button>
+    </form>
+    <p>说明：form包裹表单元素，action指定提交地址</p>
+    
+    <h3>2. GET方法</h3>
+    <form action="/search" method="GET">
+        <input type="text" name="keyword" placeholder="搜索关键词">
+        <button type="submit">搜索</button>
+    </form>
+    <p>说明：GET将参数显示在URL中，适合搜索</p>
+    
+    <h3>3. POST方法</h3>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="用户名">
+        <input type="password" name="password" placeholder="密码">
+        <button type="submit">登录</button>
+    </form>
+    <p>说明：POST隐藏参数，适合敏感数据</p>
+    
+    <h3>4. 完整注册表单</h3>
+    <form>
+        <div>
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="pwd">密码：</label>
+            <input type="password" id="pwd" name="password" required>
+        </div>
+        <div>
+            <label for="age">年龄：</label>
+            <input type="number" id="age" name="age" min="18" max="100">
+        </div>
+        <div>
+            <label for="gender">性别：</label>
+            <select id="gender" name="gender">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="agree" name="agree">
+            <label for="agree">同意条款</label>
+        </div>
+        <button type="submit">注册</button>
+        <button type="reset">重置</button>
+    </form>
+    <p>说明：组合多种输入类型形成完整表单</p>
+    
+    <h3>5. 文件上传表单</h3>
+    <form enctype="multipart/form-data">
+        <label for="file">选择文件：</label>
+        <input type="file" id="file" name="file">
+        <button type="submit">上传</button>
+    </form>
+    <p>说明：enctype设置编码类型，支持文件上传</p>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5超链接a</title>
+</head>
+<body>
+    <h1>HTML5超链接a</h1>
+    
+    <h2>target="_blank" - 新标签页打开</h2>
+    <p><a href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer">百度</a> - 在新标签页打开（推荐用于外部链接）</p>
+    <p><a href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">必应</a> - 在新标签页打开</p>
+    
+    <h2>target="_self" - 当前窗口打开（默认值）</h2>
+    <p><a href="https://www.baidu.com/" target="_self">百度</a> - 在当前窗口打开（会替换当前页面）</p>
+    <p><a href="https://www.bing.com/">必应</a> - 不写target时默认为_self</p>
+    
+    <h2>target="_parent" - 父框架中打开</h2>
+    <p><a href="https://www.baidu.com/" target="_parent">百度</a> - 在父框架中打开（仅在使用frameset/iframe时有意义）</p>
+    <p>说明：如果没有父框架，效果等同于_self</p>
+    
+    <h2>target="_top" - 整个窗口中打开</h2>
+    <p><a href="https://www.baidu.com/" target="_top">百度</a> - 在整个窗口中打开，取消所有框架</p>
+    <p>说明：即使嵌套多层框架，也会在最顶层窗口打开</p>
+    
+    <h2>其他链接类型</h2>
+    <p><a href="#section1">跳转到页面内锚点</a></p>
+    <p><a href="mailto:example@email.com">发送邮件</a></p>
+    <p><a href="tel:+8612345678900">拨打电话</a></p>
+    
+    <h2 id="section1">锚点位置</h2>
+    <p>这是锚点目标位置</p>
+    
+    <h2>总结对比</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>target值</th>
+            <th>说明</th>
+            <th>使用场景</th>
+        </tr>
+        <tr>
+            <td>_self</td>
+            <td>当前窗口打开（默认）</td>
+            <td>内部导航</td>
+        </tr>
+        <tr>
+            <td>_blank</td>
+            <td>新标签页打开</td>
+            <td>外部链接</td>
+        </tr>
+        <tr>
+            <td>_parent</td>
+            <td>父框架中打开</td>
+            <td>框架页面（较少用）</td>
+        </tr>
+        <tr>
+            <td>_top</td>
+            <td>最顶层窗口打开</td>
+            <td>跳出嵌套框架</td>
+        </tr>
+    </table>
+</body>
+</html>

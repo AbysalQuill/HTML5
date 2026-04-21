@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5文本域textarea</title>
+</head>
+<body>
+    <h1>HTML5文本域textarea</h1>
+    
+    <h3>1. 基本文本域</h3>
+    <textarea placeholder="请输入内容"></textarea>
+    <p>说明：多行文本输入框</p>
+    
+    <h3>2. 设置行列数</h3>
+    <textarea rows="5" cols="40" placeholder="5行40列"></textarea>
+    <p>说明：rows控制行数，cols控制列数</p>
+    
+    <h3>3. 默认文本</h3>
+    <textarea>这是默认文本内容</textarea>
+    <p>说明：标签之间的文本作为默认值</p>
+    
+    <h3>4. 只读文本域</h3>
+    <textarea readonly>这段文字不可编辑</textarea>
+    <p>说明：readonly使内容只读</p>
+    
+    <h3>5. 禁用文本域</h3>
+    <textarea disabled>禁用的文本域</textarea>
+    <p>说明：disabled完全禁用输入</p>
+    
+    <h3>6. 最大长度限制</h3>
+    <textarea maxlength="100" placeholder="最多100个字符"></textarea>
+    <p>说明：maxlength限制输入字符数</p>
+    
+    <h3>7. 必填文本域</h3>
+    <textarea required placeholder="此项必填"></textarea>
+    <p>说明：required标记为必填项</p>
+    
+    <h3>8. 带标签的文本域</h3>
+    <label for="comment">评论：</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+    <p>说明：label关联文本域</p>
+</body>
+</html>

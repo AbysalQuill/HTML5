@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5输入框input</title>
+</head>
+<body>
+    <h1>HTML5输入框input</h1>
+    
+    <h3>1. 文本输入框 (type="text")</h3>
+    <input type="text" placeholder="请输入用户名">
+    <p>说明：明文显示，用于输入普通文本</p>
+    
+    <h3>2. 密码输入框 (type="password")</h3>
+    <input type="password" placeholder="请输入密码">
+    <p>说明：字符显示为圆点，保护隐私</p>
+    
+    <h3>3. 按钮 (type="button")</h3>
+    <input type="button" value="登录">
+    <p>说明：普通按钮，需配合JavaScript使用</p>
+    
+    <h3>4. 邮箱输入 (type="email")</h3>
+    <input type="email" placeholder="请输入邮箱">
+    
+    <h3>5. 数字输入 (type="number")</h3>
+    <input type="number" placeholder="请输入年龄" min="1" max="150">
+    
+    <h3>6. 日期选择 (type="date")</h3>
+    <input type="date">
+    
+    <h3>7. 复选框 (type="checkbox")</h3>
+    <input type="checkbox" id="agree">
+    <label for="agree">我同意条款</label>
+    
+    <h3>8. 单选框 (type="radio")</h3>
+    <input type="radio" name="gender" id="male">
+    <label for="male">男</label>
+    <input type="radio" name="gender" id="female">
+    <label for="female">女</label>
+    
+    <h3>9. 文件上传 (type="file")</h3>
+    <input type="file">
+    
+    <h3>10. 颜色选择器 (type="color")</h3>
+    <input type="color">
+    
+    <h3>11. 范围滑块 (type="range")</h3>
+    <input type="range" min="0" max="100">
+    
+    <h2>完整登录表单示例</h2>
+    <form action="/login" method="POST">
+        <div>
+            <label for="username">用户名：</label>
+            <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+        </div>
+        <div>
+            <label for="pwd">密码：</label>
+            <input type="password" id="pwd" name="password" placeholder="请输入密码" required>
+        </div>
+        <div>
+            <input type="submit" value="登录">
+            <input type="reset" value="重置">
+        </div>
+    </form>
+</body>
+</html>
