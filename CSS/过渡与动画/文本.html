@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS过渡与动画</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS过渡与动画</h1>
+    
+    <h3>1. transition（过渡）</h3>
+    <div class="transition-box">
+        <p>鼠标悬停查看过渡效果</p>
+    </div>
+    <p>说明：transition实现属性变化的平滑过渡效果</p>
+    
+    <h3>2. transition-property（过渡属性）</h3>
+    <div class="transition-property">
+        <p>仅宽度过渡</p>
+    </div>
+    <p>说明：指定哪些属性需要过渡，all表示所有属性</p>
+    
+    <h3>3. transition-duration（持续时间）</h3>
+    <div class="transition-duration">
+        <p>持续2秒</p>
+    </div>
+    <p>说明：设置过渡动画的持续时间</p>
+    
+    <h3>4. transition-timing-function（缓动函数）</h3>
+    <div class="timing-ease">ease</div>
+    <div class="timing-linear">linear</div>
+    <div class="timing-ease-in">ease-in</div>
+    <p>说明：控制过渡速度曲线，如匀速、加速、减速等</p>
+    
+    <h3>5. @keyframes（关键帧动画）</h3>
+    <div class="keyframe-animation">
+        <p>关键帧动画</p>
+    </div>
+    <p>说明：定义动画的关键帧，实现复杂动画效果</p>
+    
+    <h3>6. animation-name & duration</h3>
+    <div class="animation-basic">
+        <p>基础动画</p>
+    </div>
+    <p>说明：animation-name指定动画名称，duration设置时长</p>
+    
+    <h3>7. animation-iteration-count（循环次数）</h3>
+    <div class="animation-infinite">
+        <p>无限循环</p>
+    </div>
+    <p>说明：infinite无限循环，数字指定具体次数</p>
+    
+    <h3>8. animation-direction（播放方向）</h3>
+    <div class="animation-alternate">
+        <p>交替播放</p>
+    </div>
+    <p>说明：alternate正向反向交替播放</p>
+    
+    <h3>9. 复合动画属性</h3>
+    <div class="animation-complex">
+        <p>复合动画</p>
+    </div>
+    <p>说明：animation可一次性设置所有动画属性</p>
+    
+    <h3>10. transform变换</h3>
+    <div class="transform-container">
+        <div class="transform-rotate">旋转</div>
+        <div class="transform-scale">缩放</div>
+        <div class="transform-translate">平移</div>
+    </div>
+    <p>说明：transform实现旋转、缩放、平移等2D/3D变换</p>
+</body>
+</html>

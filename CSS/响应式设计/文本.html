@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS响应式设计</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS响应式设计</h1>
+    
+    <h3>1. 视口meta标签</h3>
+    <p>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+    <p>说明：设置视口宽度等于设备宽度，初始缩放比例为1</p>
+    
+    <h3>2. @media媒体查询</h3>
+    <div class="media-demo">
+        <p>调整浏览器宽度查看效果</p>
+    </div>
+    <p>说明：根据不同屏幕尺寸应用不同样式</p>
+    
+    <h3>3. 断点设置</h3>
+    <div class="breakpoint-demo">
+        <p class="breakpoint-text">当前断点：<span id="breakpoint-label">桌面端</span></p>
+    </div>
+    <p>说明：常用断点：768px（平板）、1024px（小屏桌面）、1200px（大屏）</p>
+    
+    <h3>4. 流式布局（百分比）</h3>
+    <div class="fluid-container">
+        <div class="fluid-item">50%宽度</div>
+        <div class="fluid-item">50%宽度</div>
+    </div>
+    <p>说明：使用百分比而非固定像素，元素随容器自适应</p>
+    
+    <h3>5. max-width/max-height</h3>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%234CAF50' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20'%3E响应式图片%3C/text%3E%3C/svg%3E" alt="示例图片" class="responsive-img">
+    <p>说明：max-width:100%让图片不超过容器宽度，保持比例</p>
+    
+    <h3>6. 弹性图片与视频</h3>
+    <div class="video-container">
+        <div class="video-placeholder">响应式视频容器</div>
+    </div>
+    <p>说明：使用padding-bottom技巧保持视频宽高比</p>
+    
+    <h3>7. 响应式导航</h3>
+    <nav class="responsive-nav">
+        <div class="nav-brand">Logo</div>
+        <ul class="nav-links">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">联系</a></li>
+        </ul>
+    </nav>
+    <p>说明：小屏幕时导航变为垂直排列或汉堡菜单</p>
+    
+    <h3>8. 响应式网格</h3>
+    <div class="responsive-grid">
+        <div class="grid-card">卡片1</div>
+        <div class="grid-card">卡片2</div>
+        <div class="grid-card">卡片3</div>
+        <div class="grid-card">卡片4</div>
+    </div>
+    <p>说明：大屏幕多列，小屏幕单列，自动适配</p>
+    
+    <h3>9. 移动优先策略</h3>
+    <p>说明：先编写移动端样式，再通过媒体查询增强大屏体验</p>
+    <p>优势：移动端性能更好，代码更简洁</p>
+    
+    <h3>10. vw/vh视口单位</h3>
+    <div class="vw-box">
+        <p>50vw宽度</p>
+    </div>
+    <div class="vh-box">
+        <p>20vh高度</p>
+    </div>
+    <p>说明：vw相对于视口宽度，vh相对于视口高度，实现真正的响应式</p>
+    
+    <h3>11. vmin/vmax单位</h3>
+    <div class="vmin-box">
+        <p>15vmin正方形</p>
+    </div>
+    <p>说明：vmin取vw和vh较小值，vmax取较大值，保持比例适配</p>
+    
+    <h3>12. 响应式字体</h3>
+    <p class="responsive-font">使用vw单位的响应式字体</p>
+    <p>说明：font-size:5vw让字体随视口自动缩放</p>
+    
+    <h3>13. 相对单位（rem/em）</h3>
+    <div class="relative-units">
+        <p class="rem-text">rem单位（相对于根元素）</p>
+        <p class="em-text">em单位（相对于父元素）</p>
+    </div>
+    <p>说明：使用相对单位实现更好的响应式效果</p>
+    
+    <h3>14. calc()函数计算</h3>
+    <div class="calc-box">
+        <p>width: calc(50vw - 20px)</p>
+    </div>
+    <p>说明：calc()可混合使用视口单位和其他单位进行精确计算</p>
+    
+    <h3>15. 全屏布局应用</h3>
+    <div class="fullscreen-section">
+        <p>100vh全屏区域</p>
+    </div>
+    <p>说明：height:100vh创建占满整个视口的区域</p>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid布局</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS Grid布局</h1>
+    
+    <h3>1. 启用Grid</h3>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+    </div>
+    <p>说明：display:grid将容器设为网格布局，子元素自动成为网格项目</p>
+    
+    <h3>2. grid-template-columns（列定义）</h3>
+    <div class="grid-columns">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <p>说明：定义每列宽度，可使用px、fr等单位</p>
+    
+    <h3>3. grid-template-rows（行定义）</h3>
+    <div class="grid-rows">
+        <div class="item">行1</div>
+        <div class="item">行2</div>
+        <div class="item">行3</div>
+    </div>
+    <p>说明：定义每行高度</p>
+    
+    <h3>4. gap（间距）</h3>
+    <div class="grid-gap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <p>说明：gap设置行列间距，替代margin</p>
+    
+    <h3>5. grid-column（跨列）</h3>
+    <div class="grid-span-col">
+        <div class="item-span-2">跨2列</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <p>说明：grid-column:span 2让元素跨越2列</p>
+    
+    <h3>6. grid-row（跨行）</h3>
+    <div class="grid-span-row">
+        <div class="item-span-row">跨2行</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <p>说明：grid-row:span 2让元素跨越2行</p>
+    
+    <h3>7. justify-items（水平对齐）</h3>
+    <div class="justify-items-center">
+        <div class="item-small">居中</div>
+        <div class="item-small">居中</div>
+    </div>
+    <p>说明：控制项目在单元格内的水平对齐</p>
+    
+    <h3>8. align-items（垂直对齐）</h3>
+    <div class="align-items-center">
+        <div class="item-small">居中</div>
+        <div class="item-small">居中</div>
+    </div>
+    <p>说明：控制项目在单元格内的垂直对齐</p>
+    
+    <h3>9. 经典应用：圣杯布局</h3>
+    <div class="holy-grail">
+        <header class="header">头部</header>
+        <nav class="nav">导航</nav>
+        <main class="main">内容区</main>
+        <aside class="aside">侧边栏</aside>
+        <footer class="footer">底部</footer>
+    </div>
+    <p>说明：Grid轻松实现复杂布局，如圣杯、双飞翼等</p>
+</body>
+</html>

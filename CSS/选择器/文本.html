@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS选择器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS选择器</h1>
+    
+    <h3>1. 通用选择器(*)</h3>
+    <p class="universal">说明：匹配所有元素，常用于重置样式</p>
+    
+    <h3>2. 元素选择器</h3>
+    <p class="element">说明：直接选择HTML标签如p、h1、div</p>
+    
+    <h3>3. 类选择器(.class)</h3>
+    <p class="class-selector">说明：通过class属性选择，可重复使用</p>
+    <p class="class-selector">同一个类可应用于多个元素</p>
+    
+    <h3>4. ID选择器(#id)</h3>
+    <p id="id-selector">说明：通过id属性选择，页面唯一</p>
+    
+    <h3>5. 后代选择器(空格)</h3>
+    <div class="ancestor">
+        <p class="descendant">说明：选择祖先元素内的所有后代元素</p>
+    </div>
+    
+    <h3>6. 子代选择器(>)</h3>
+    <div class="parent">
+        <p class="child">说明：只选择直接子元素</p>
+        <div><p class="not-child">这不是直接子元素</p></div>
+    </div>
+    
+    <h3>7. 相邻兄弟选择器(+)</h3>
+    <p class="first">第一个段落</p>
+    <p class="adjacent">说明：选择紧接在后的相邻兄弟元素</p>
+    <p class="not-adjacent">这不是相邻兄弟</p>
+    
+    <h3>8. 通用兄弟选择器(~)</h3>
+    <p class="sibling-first">第一个</p>
+    <p class="sibling">说明：选择后面所有同级兄弟元素</p>
+    <p class="sibling">这也是兄弟元素</p>
+    
+    <h3>9. 属性选择器([])</h3>
+    <p data-type="info">说明：根据属性选择元素</p>
+    <p data-type="warning">可以匹配属性值</p>
+    
+    <h3>10. 伪类选择器(:)</h3>
+    <a href="#" class="pseudo-link">说明：鼠标悬停时变色（:hover）</a>
+    
+    <h3>11. 伪元素选择器(::)</h3>
+    <p class="pseudo-element">说明：在元素前后插入内容（::before、::after）</p>
+    
+    <h3>12. 群组选择器(,)</h3>
+    <p class="group1">说明：多个选择器共享相同样式</p>
+    <p class="group2">用逗号分隔选择器</p>
+</body>
+</html>

@@ -1,0 +1,191 @@
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h3 {
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.transition-box {
+    width: 200px;
+    height: 80px;
+    background-color: #2196f3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.transition-box:hover {
+    width: 300px;
+    background-color: #ff5722;
+    transform: rotate(5deg);
+}
+.transition-property {
+    width: 200px;
+    height: 80px;
+    background-color: #4caf50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.5s ease;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.transition-property:hover {
+    width: 300px;
+    background-color: #ff9800;
+}
+.transition-duration {
+    width: 200px;
+    height: 80px;
+    background-color: #9c27b0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.transition-duration:hover {
+    background-color: #e91e63;
+    transform: scale(1.2);
+}
+.timing-ease, .timing-linear, .timing-ease-in {
+    width: 150px;
+    height: 60px;
+    background-color: #ff9800;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 1s;
+}
+.timing-ease {
+    transition-timing-function: ease;
+}
+.timing-linear {
+    transition-timing-function: linear;
+}
+.timing-ease-in {
+    transition-timing-function: ease-in;
+}
+.timing-ease:hover, .timing-linear:hover, .timing-ease-in:hover {
+    transform: translateX(100px);
+}
+.keyframe-animation {
+    width: 150px;
+    height: 80px;
+    background-color: #00bcd4;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slide 2s infinite;
+    margin: 10px 0;
+}
+@keyframes slide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+.animation-basic {
+    width: 150px;
+    height: 80px;
+    background-color: #795548;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    margin: 10px 0;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.animation-infinite {
+    width: 150px;
+    height: 80px;
+    background-color: #607d8b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 1s infinite;
+    margin: 10px 0;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.animation-alternate {
+    width: 150px;
+    height: 80px;
+    background-color: #3f51b5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: colorChange 2s infinite alternate;
+    margin: 10px 0;
+}
+@keyframes colorChange {
+    from { background-color: #3f51b5; }
+    to { background-color: #e91e63; }
+}
+.animation-complex {
+    width: 150px;
+    height: 80px;
+    background-color: #009688;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: complexAnim 3s ease-in-out infinite alternate;
+    margin: 10px 0;
+}
+@keyframes complexAnim {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.2) rotate(10deg); }
+}
+.transform-container {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+}
+.transform-rotate, .transform-scale, .transform-translate {
+    width: 100px;
+    height: 80px;
+    background-color: #ff5722;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+.transform-rotate:hover {
+    transform: rotate(45deg);
+}
+.transform-scale:hover {
+    transform: scale(1.3);
+}
+.transform-translate:hover {
+    transform: translate(20px, -20px);
+}

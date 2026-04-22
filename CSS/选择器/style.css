@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h3 {
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.universal {
+    border-left: 3px solid blue;
+    padding-left: 10px;
+}
+.element {
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+.class-selector {
+    color: green;
+    font-weight: bold;
+}
+#id-selector {
+    color: purple;
+    font-size: 16px;
+    border: 2px dashed purple;
+    padding: 5px;
+}
+.ancestor .descendant {
+    color: orange;
+    background-color: #fff3e0;
+    padding: 5px;
+}
+.parent > .child {
+    color: red;
+    font-weight: bold;
+}
+.not-child {
+    color: gray;
+}
+.first + .adjacent {
+    color: teal;
+    background-color: #e0f7fa;
+}
+.not-adjacent {
+    color: #999;
+}
+.sibling-first ~ .sibling {
+    color: navy;
+    font-style: italic;
+}
+p[data-type="info"] {
+    color: blue;
+    border-left: 3px solid blue;
+    padding-left: 10px;
+}
+p[data-type="warning"] {
+    color: orange;
+    border-left: 3px solid orange;
+    padding-left: 10px;
+}
+.pseudo-link:hover {
+    color: red;
+    text-decoration: underline;
+}
+.pseudo-element::before {
+    content: "【前缀】";
+    color: gray;
+}
+.pseudo-element::after {
+    content: "【后缀】";
+    color: gray;
+}
+.group1, .group2 {
+    background-color: #ffe0e0;
+    padding: 5px;
+    border-radius: 3px;
+}

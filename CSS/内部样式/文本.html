@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS内部样式</title>
+    <style>
+        h1 {
+            color: rgb(175, 13, 233);
+            text-align: center;
+        }
+        p {
+            color: blue;
+            font-size: 16px;
+        }
+        .red-text {
+            color: red;
+        }
+        #unique-text {
+            color: purple;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS内部样式</h1>
+    
+    <h3>1. 语法位置</h3>
+    <p>说明：在HTML文档的&lt;head&gt;标签内使用&lt;style&gt;标签定义样式</p>
+    
+    <h3>2. 基本选择器</h3>
+    <p>这是普通段落样式</p>
+    <p class="red-text">这是类选择器样式（红色）</p>
+    <p id="unique-text">这是ID选择器样式（紫色加粗）</p>
+    
+    <h3>3. 元素选择器</h3>
+    <p>说明：直接对h1、p等HTML元素设置统一样式</p>
+    
+    <h3>4. 类选择器(class)</h3>
+    <p class="red-text">说明：通过class属性应用样式，可重复使用</p>
+    
+    <h3>5. ID选择器(id)</h3>
+    <p id="unique-text">说明：通过id属性应用样式，页面唯一</p>
+    
+    <h3>6. 特点与适用场景</h3>
+    <p>优点：样式与结构分离，便于维护</p>
+    <p>缺点：仅作用于当前页面</p>
+    <p>适用：单页面项目或页面独有样式</p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS浮动与定位</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS浮动与定位</h1>
+    
+    <h3>1. 浮动(float)</h3>
+    <div class="float-container">
+        <div class="float-left">左浮动</div>
+        <div class="float-right">右浮动</div>
+        <p class="clear-text">说明：浮动元素脱离文档流，文字环绕排列</p>
+    </div>
+    
+    <h3>2. 清除浮动(clear)</h3>
+    <div class="float-box">
+        <div class="floated-item">浮动元素</div>
+    </div>
+    <div class="cleared-box">
+        <p>说明：clear:both清除浮动影响，恢复文档流</p>
+    </div>
+    
+    <h3>3. 静态定位(position:static)</h3>
+    <div class="static-box">
+        <p>说明：默认定位方式，按正常文档流排列</p>
+    </div>
+    
+    <h3>4. 相对定位(position:relative)</h3>
+    <div class="relative-container">
+        <div class="relative-box">
+            <p>相对定位</p>
+        </div>
+    </div>
+    <p>说明：相对于自身原位置偏移，仍占据原空间</p>
+    
+    <h3>5. 绝对定位(position:absolute)</h3>
+    <div class="absolute-container">
+        <div class="absolute-box">
+            <p>绝对定位</p>
+        </div>
+    </div>
+    <p>说明：相对于最近的已定位祖先元素，脱离文档流</p>
+    
+    <h3>6. 固定定位(position:fixed)</h3>
+    <div class="fixed-box">
+        <p>固定定位（右下角）</p>
+    </div>
+    <p>说明：相对于浏览器窗口，滚动时位置不变</p>
+    
+    <h3>7. 粘性定位(position:sticky)</h3>
+    <div class="sticky-container">
+        <div class="sticky-box">
+            <p>粘性定位</p>
+        </div>
+        <p class="scroll-text">向下滚动查看效果：元素在到达阈值前正常滚动，之后固定</p>
+        <p class="scroll-text">更多内容...</p>
+        <p class="scroll-text">更多内容...</p>
+    </div>
+    
+    <h3>8. z-index层叠顺序</h3>
+    <div class="z-index-container">
+        <div class="z-box-1">z-index:1</div>
+        <div class="z-box-2">z-index:2</div>
+        <div class="z-box-3">z-index:3</div>
+    </div>
+    <p>说明：数值越大越靠上，仅对定位元素有效</p>
+</body>
+</html>

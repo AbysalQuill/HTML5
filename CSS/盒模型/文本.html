@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS盒模型</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS盒模型</h1>
+    
+    <h3>1. 盒模型组成</h3>
+    <div class="box-model-demo">
+        <p class="content">内容区(content)</p>
+    </div>
+    <p>说明：每个HTML元素都是一个矩形盒子，由content、padding、border、margin组成</p>
+    
+    <h3>2. 内容区(content)</h3>
+    <div class="content-box">
+        <p>这是内容区域</p>
+    </div>
+    <p>说明：元素的实际内容区域，可设置宽高</p>
+    
+    <h3>3. 内边距(padding)</h3>
+    <div class="padding-box">
+        <p>内容与边框的距离</p>
+    </div>
+    <p>说明：内容区与边框之间的空间，背景色会延伸到此区域</p>
+    
+    <h3>4. 边框(border)</h3>
+    <div class="border-box">
+        <p>边框围绕内容和内边距</p>
+    </div>
+    <p>说明：围绕内容和内边距的边框线</p>
+    
+    <h3>5. 外边距(margin)</h3>
+    <div class="margin-box">
+        <p>与其他元素的距离</p>
+    </div>
+    <p>说明：盒子与其他元素之间的空间，透明无背景</p>
+    
+    <h3>6. box-sizing属性</h3>
+    <div class="content-sizing">
+        <p>content-box（默认）</p>
+    </div>
+    <div class="border-sizing">
+        <p>border-box</p>
+    </div>
+    <p>说明：content-box宽高仅指内容区；border-box宽高包含内容+内边距+边框</p>
+    
+    <h3>7. margin合并</h3>
+    <div class="margin-collapse-1">
+        <p>上元素下边距50px</p>
+    </div>
+    <div class="margin-collapse-2">
+        <p>下元素上边距30px，实际间距50px（取最大值）</p>
+    </div>
+    <p>说明：垂直方向相邻margin会合并，取较大值</p>
+    
+    <h3>8. margin:auto居中</h3>
+    <div class="center-box">
+        <p>水平居中</p>
+    </div>
+    <p>说明：块级元素设置margin:0 auto可水平居中</p>
+</body>
+</html>

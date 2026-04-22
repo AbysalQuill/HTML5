@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS内联行内样式</title>
+</head>
+<body>
+    <h1>CSS内联行内样式</h1>
+    
+    <h3>1. 语法格式</h3>
+    <p style="color: red;">说明：在HTML标签的style属性中直接写CSS样式</p>
+    <p>格式：&lt;标签 style="属性:值;属性:值;"&gt;</p>
+    
+    <h3>2. 颜色(color)</h3>
+    <p style="color: blue;">蓝色文字</p>
+    <p style="color: rgb(255,0,0);">RGB红色文字</p>
+    <p style="color: #1c93ce;">十六进制绿色文字</p>
+    
+    <h3>3. 字体大小(font-size)</h3>
+    <p style="font-size: 12px;">12像素文字</p>
+    <p style="font-size: 20px;">20像素文字</p>
+    <p style="font-size: 30px;">30像素文字</p>
+    
+    <h3>4. 字体粗细(font-weight)</h3>
+    <p style="font-weight: normal;">正常粗细</p>
+    <p style="font-weight: bold;">加粗</p>
+    <p style="font-weight: bolder;">更粗</p>
+    
+    <h3>5. 字体样式(font-style)</h3>
+    <p style="font-style: normal;">正常样式</p>
+    <p style="font-style: italic;">斜体</p>
+    
+    <h3>6. 文本对齐(text-align)</h3>
+    <p style="text-align: left;">左对齐</p>
+    <p style="text-align: center;">居中对齐</p>
+    <p style="text-align: right;">右对齐</p>
+    
+    <h3>7. 背景颜色(background-color)</h3>
+    <p style="background-color: yellow;">黄色背景</p>
+    <p style="background-color: #f0f0f0;">灰色背景</p>
+    
+    <h3>8. 多属性组合</h3>
+    <p style="color: white; font-size: 18px; background-color: black; text-align: center;">白色文字、18像素、黑色背景、居中</p>
+    
+    <h3>9. 特点与限制</h3>
+    <p>优点：优先级最高，直接生效</p>
+    <p>缺点：样式与结构耦合，不利于维护</p>
+    <p>适用：少量特殊样式或动态样式</p>
+</body>
+</html>

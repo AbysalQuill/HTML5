@@ -1,0 +1,135 @@
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h3 {
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.flex-container {
+    display: flex;
+    background-color: #e3f2fd;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+.flex-item {
+    background-color: #2196f3;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    background-color: #c8e6c9;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #a5d6a7;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+    height: 100px;
+}
+.item {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.justify-start {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #ffccbc;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+.justify-center {
+    display: flex;
+    justify-content: center;
+    background-color: #ffab91;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ff8a65;
+    padding: 10px;
+    margin: 10px 0;
+}
+.align-stretch {
+    display: flex;
+    align-items: stretch;
+    background-color: #b3e5fc;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+    height: 80px;
+}
+.align-center {
+    display: flex;
+    align-items: center;
+    background-color: #81d4fa;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+    height: 80px;
+}
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #e1bee7;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+.flex-grow {
+    display: flex;
+    background-color: #fff9c4;
+    padding: 10px;
+    margin: 10px 0;
+}
+.item-grow-1 {
+    flex: 1;
+    background-color: #fbc02d;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.item-grow-2 {
+    flex: 2;
+    background-color: #f9a825;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d1c4e9;
+    padding: 30px;
+    margin: 10px 0;
+    height: 100px;
+}
+.centered-item {
+    background-color: #7c4dff;
+    color: white;
+    padding: 15px 30px;
+}

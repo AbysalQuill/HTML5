@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS外部样式</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS外部样式</h1>
+    
+    <h3>1. 引入方式</h3>
+    <p>说明：通过&lt;link&gt;标签引入外部CSS文件</p>
+    <p>语法：&lt;link rel="stylesheet" href="文件路径"&gt;</p>
+    
+    <h3>2. 实际效果展示</h3>
+    <p>这是普通段落（灰色14px）</p>
+    <p class="highlight">这是高亮段落（黄色背景）</p>
+    
+    <h3>3. 多文件引入</h3>
+    <p>说明：可引入多个CSS文件，按顺序加载</p>
+    <p>&lt;link rel="stylesheet" href="reset.css"&gt;</p>
+    <p>&lt;link rel="stylesheet" href="main.css"&gt;</p>
+    
+    <h3>4. @import方式</h3>
+    <p>说明：在&lt;style&gt;标签或CSS文件中使用@import导入</p>
+    <p>@import url("style.css");</p>
+    
+    <h3>5. 特点与适用场景</h3>
+    <p>优点：样式完全分离，可复用，便于缓存</p>
+    <p>缺点：需要额外HTTP请求</p>
+    <p>适用：多页面项目、大型网站</p>
+</body>
+</html>

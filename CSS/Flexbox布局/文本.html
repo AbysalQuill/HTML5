@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox布局</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS Flexbox布局</h1>
+    
+    <h3>1. 启用Flexbox</h3>
+    <div class="flex-container">
+        <div class="flex-item">项目1</div>
+        <div class="flex-item">项目2</div>
+        <div class="flex-item">项目3</div>
+    </div>
+    <p>说明：display:flex将容器设为弹性盒子，子元素自动成为flex项目</p>
+    
+    <h3>2. flex-direction（主轴方向）</h3>
+    <div class="flex-row">
+        <div class="item">row</div>
+        <div class="item">默认</div>
+    </div>
+    <div class="flex-column">
+        <div class="item">column</div>
+        <div class="item">垂直</div>
+    </div>
+    <p>说明：row水平排列（默认），column垂直排列</p>
+    
+    <h3>3. justify-content（主轴对齐）</h3>
+    <div class="justify-start">
+        <div class="item">flex-start</div>
+        <div class="item">居左</div>
+    </div>
+    <div class="justify-center">
+        <div class="item">center</div>
+        <div class="item">居中</div>
+    </div>
+    <div class="justify-between">
+        <div class="item">space-between</div>
+        <div class="item">两端</div>
+    </div>
+    <p>说明：控制项目在主轴上的对齐方式</p>
+    
+    <h3>4. align-items（交叉轴对齐）</h3>
+    <div class="align-stretch">
+        <div class="item">stretch</div>
+        <div class="item">拉伸</div>
+    </div>
+    <div class="align-center">
+        <div class="item">center</div>
+        <div class="item">居中</div>
+    </div>
+    <p>说明：控制项目在交叉轴上的对齐方式</p>
+    
+    <h3>5. flex-wrap（换行）</h3>
+    <div class="flex-wrap">
+        <div class="item">项目1</div>
+        <div class="item">项目2</div>
+        <div class="item">项目3</div>
+        <div class="item">项目4</div>
+        <div class="item">项目5</div>
+    </div>
+    <p>说明：nowrap不换行（默认），wrap超出宽度自动换行</p>
+    
+    <h3>6. flex属性（项目缩放）</h3>
+    <div class="flex-grow">
+        <div class="item-grow-1">flex:1</div>
+        <div class="item-grow-2">flex:2</div>
+        <div class="item-grow-1">flex:1</div>
+    </div>
+    <p>说明：flex:1表示占1份，flex:2表示占2份，按比例分配空间</p>
+    
+    <h3>7. 经典应用：水平垂直居中</h3>
+    <div class="center-flex">
+        <div class="centered-item">完美居中</div>
+    </div>
+    <p>说明：justify-content:center + align-items:center实现居中</p>
+</body>
+</html>
