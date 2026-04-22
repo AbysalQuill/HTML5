@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 变量</title>
+</head>
+<body>
+    <h1>打开控制台查看输出，浏览器按F12</h1>
+    <script>
+        let username="张三"
+        let age=18
+        const PI=3.14
+        let isStudent=true
+        let score=null
+        let address
+        let hobbies=["读书","运动","音乐"]
+        let person={name:"李四",age:20}
+        
+        console.log("字符串:",username)
+        console.log("数字:",age)
+        console.log("常量:",PI)
+        console.log("布尔值:",isStudent)
+        console.log("空值:",score)
+        console.log("未定义:",address)
+        console.log("数组:",hobbies)
+        console.log("对象:",person)
+        
+        age=19
+        console.log("修改后age:",age)
+        
+        // PI=3.14159 // 错误:const不能重新赋值
+    </script>
+</body>
+</html>

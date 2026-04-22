@@ -77,5 +77,57 @@
     <h3>small（小号文本）</h3>
     <p>主要内容<small>（这是补充说明）</small></p>
     <p>说明：small使文本变小，用于免责声明、版权等次要信息</p>
+    
+    <h2>7. 键盘输入与变量</h2>
+    
+    <h3>kbd（键盘输入）</h3>
+    <p>按下<kbd>Ctrl</kbd>+<kbd>C</kbd>复制选中的内容。</p>
+    <p>说明：kbd表示用户键盘输入，默认等宽字体</p>
+    
+    <h3>var（变量）</h3>
+    <p>公式：<var>x</var> = <var>y</var> + <var>z</var></p>
+    <p>说明：var表示数学或编程中的变量，默认斜体</p>
+    
+    <h3>samp（程序输出）</h3>
+    <p>程序输出结果：<samp>Hello World</samp></p>
+    <p>说明：samp表示程序的输出样本，默认等宽字体</p>
+    
+    <h2>8. 缩写与定义</h2>
+    
+    <h3>abbr（缩写）</h3>
+    <p><abbr title="HyperText Markup Language">HTML</abbr>是网页的标准标记语言。</p>
+    <p>说明：abbr表示缩写，title属性提供完整解释，鼠标悬停时显示</p>
+    
+    <h3>dfn（术语定义）</h3>
+    <p><dfn>HTML</dfn>是一种用于创建网页的标记语言。</p>
+    <p>说明：dfn表示术语的首次定义，通常斜体显示</p>
+    
+    <h2>9. 双向文本 bdi / bdo</h2>
+    
+    <h3>bdi（双向隔离）</h3>
+    <p>用户名：<bdi>مرحبا</bdi> - 欢迎</p>
+    <p>说明：bdi隔离可能不同方向的文本，防止影响周围文本方向</p>
+    
+    <h3>bdo（双向覆盖）</h3>
+    <p>正常文本：<bdo dir="rtl">从右到左</bdo></p>
+    <p>说明：bdo强制指定文本方向，dir属性值为ltr或rtl</p>
+    
+    <h2>10. 时间与数据</h2>
+    
+    <h3>time（时间）</h3>
+    <p>会议时间：<time datetime="2024-01-15 14:30">2024年1月15日下午2:30</time></p>
+    <p>说明：time表示日期或时间，datetime属性提供机器可读格式</p>
+    
+    <h3>data（数据）</h3>
+    <p>产品编号：<data value="SKU-12345">ABC-001</data></p>
+    <p>说明：data将内容与机器可读值关联，value属性存储数据值</p>
+    
+    <h3>meter（度量衡）</h3>
+    <p>磁盘使用率：<meter value="0.7" min="0" max="1">70%</meter></p>
+    <p>说明：meter表示已知范围内的标量测量值</p>
+    
+    <h3>progress（进度条）</h3>
+    <p>下载进度：<progress value="60" max="100">60%</progress></p>
+    <p>说明：progress表示任务完成进度</p>
 </body>
 </html>
