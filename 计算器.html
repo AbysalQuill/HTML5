@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue计算器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            width: 320px;
+        }
+
+        .display {
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: right;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .previous-operand {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .current-operand {
+            color: #212529;
+            font-size: 28px;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .number {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .operator {
+            background-color: #4361ee;
+            color: white;
+        }
+
+        .equals {
+            background-color: #06d6a0;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .clear {
+            background-color: #ef476f;
+            color: white;
+        }
+
+        .delete {
+            background-color: #ffd166;
+            color: #212529;
+        }
+
+        .span-two {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="calculator">
+            <div class="display">
+                <div class="previous-operand">{{ previousOperandDisplay }}</div>
+                <div class="current-operand">{{ currentOperand || '0' }}</div>
+            </div>
+
+            <div class="buttons">
+                <button class="clear" @click="clearDisplay">AC</button>
+                <button class="delete" @click="deleteLast">DEL</button>
+                <button class="operator" @click="chooseOperator('÷')">÷</button>
+                <button class="operator" @click="chooseOperator('×')">×</button>
+
+                <button class="number" @click="appendNumber('7')">7</button>
+                <button class="number" @click="appendNumber('8')">8</button>
+                <button class="number" @click="appendNumber('9')">9</button>
+                <button class="operator" @click="chooseOperator('-')">-</button>
+
+                <button class="number" @click="appendNumber('4')">4</button>
+                <button class="number" @click="appendNumber('5')">5</button>
+                <button class="number" @click="appendNumber('6')">6</button>
+                <button class="operator" @click="chooseOperator('+')">+</button>
+
+                <button class="number" @click="appendNumber('1')">1</button>
+                <button class="number" @click="appendNumber('2')">2</button>
+                <button class="number" @click="appendNumber('3')">3</button>
+                <button class="operator" @click="chooseOperator('.')">.</button>
+
+                <button class="number span-two" @click="appendNumber('0')">0</button>
+                <button class="equals" @click="compute">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                currentOperand: '',
+                previousOperand: '',
+                operation: undefined
+            },
+            computed: {
+                previousOperandDisplay() {
+                    return this.operation !== undefined ?
+                           this.previousOperand + ' ' + this.operation :
+                           '';
+                }
+            },
+            methods: {
+                appendNumber(number) {
+                    if (number === '.' && this.currentOperand.includes('.')) return;
+                    this.currentOperand = this.currentOperand.toString() + number.toString();
+                },
+                chooseOperator(operator) {
+                    if (this.currentOperand === '') return;
+                    if (this.operation !== undefined) {
+                        this.compute();
+                    }
+                    this.operation = operator;
+                    this.previousOperand = this.currentOperand;
+                    this.currentOperand = '';
+                },
+                compute() {
+                    let computation;
+                    const prev = parseFloat(this.previousOperand);
+                    const current = parseFloat(this.currentOperand);
+
+                    if (isNaN(prev) || isNaN(current)) return;
+
+                    switch (this.operation) {
+                        case '+':
+                            computation = prev + current;
+                            break;
+                        case '-':
+                            computation = prev - current;
+                            break;
+                        case '×':
+                            computation = prev * current;
+                            break;
+                        case '÷':
+                            computation = prev / current;
+                            break;
+                        default:
+                            return;
+                    }
+
+                    this.currentOperand = computation;
+                    this.operation = undefined;
+                    this.previousOperand = '';
+                },
+                clearDisplay() {
+                    this.currentOperand = '';
+                    this.previousOperand = '';
+                    this.operation = undefined;
+                },
+                deleteLast() {
+                    this.currentOperand = this.currentOperand.toString().slice(0, -1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
