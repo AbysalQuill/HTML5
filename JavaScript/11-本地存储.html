@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 本地存储</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 本地存储</h1>
+    
+    <h2>1. localStorage</h2>
+    
+    <h3>存储数据</h3>
+    <pre>localStorage.setItem("username", "张三");
+localStorage.setItem("theme", "dark");</pre>
+    <p>说明：在浏览器中永久保存数据，除非用户清除缓存</p>
+    
+    <h3>读取数据</h3>
+    <pre>let username = localStorage.getItem("username");
+console.log(username); // "张三"</pre>
+    <p>说明：从localStorage获取存储的数据</p>
+    
+    <h3>删除数据</h3>
+    <pre>localStorage.removeItem("username"); // 删除单个项目
+localStorage.clear(); // 清空所有数据</pre>
+    <p>说明：删除指定的存储项或清空所有数据</p>
+    
+    <h2>2. sessionStorage</h2>
+    
+    <h3>会话级存储</h3>
+    <pre>sessionStorage.setItem("tempData", "临时数据");
+let data = sessionStorage.getItem("tempData");</pre>
+    <p>说明：数据只在当前会话期间有效，关闭页面后自动清除</p>
+    
+    <h2>3. JSON序列化</h2>
+    
+    <h3>存储对象和数组</h3>
+    <pre>let user = {
+    name: "张三",
+    age: 25,
+    hobbies: ["阅读", "运动"]
+};
+
+// 存储前需要转换为JSON字符串
+localStorage.setItem("user", JSON.stringify(user));
+
+// 读取后需要解析回对象
+let storedUser = JSON.parse(localStorage.getItem("user"));
+console.log(storedUser.name); // "张三"</pre>
+    <p>说明：复杂数据类型需要先序列化为JSON字符串再存储</p>
+    
+    <h2>4. 实际应用示例</h2>
+    
+    <h3>记住用户偏好</h3>
+    <pre>function saveTheme(theme) {
+    localStorage.setItem("theme", theme);
+}
+
+function getTheme() {
+    return localStorage.getItem("theme") || "light";
+}</pre>
+    <p>说明：保存用户的主题偏好设置</p>
+    
+    <h3>购物车功能</h3>
+    <pre>function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+}</pre>
+    <p>说明：将购物车商品保存在本地存储中</p>
+    
+    <h3>表单数据暂存</h3>
+    <pre>function saveFormData(formData) {
+    sessionStorage.setItem("formDraft", JSON.stringify(formData));
+}</pre>
+    <p>说明：在用户填写表单时暂存数据，防止丢失</p>
+    
+    <div>
+        <label>用户名:</label>
+        <input type="text" id="username" placeholder="输入用户名">
+        <button onclick="saveUsername()">保存用户名</button>
+        <button onclick="loadUsername()">加载用户名</button>
+    </div>
+    
+    <script>
+        // 本地存储示例
+        function saveUsername() {
+            let username = document.getElementById("username").value;
+            localStorage.setItem("savedUsername", username);
+            alert("用户名已保存!");
+        }
+        
+        function loadUsername() {
+            let username = localStorage.getItem("savedUsername");
+            if (username) {
+                document.getElementById("username").value = username;
+                alert("加载成功: " + username);
+            } else {
+                alert("没有找到保存的用户名");
+            }
+        }
+        
+        // 页面加载时检查是否有保存的主题
+        window.addEventListener("load", function() {
+            let savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                document.body.className = savedTheme;
+            }
+        });
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 模块化开发</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript 模块化开发</h1>
+
+        <h2>1. 模块基础概念</h2>
+
+        <h3>什么是模块</h3>
+        <pre>// math.js - 数学工具模块
+export function add(a, b) {
+    return a + b;
+}
+
+export function subtract(a, b) {
+    return a - b;
+}</pre>
+        <p>说明：模块是包含特定功能的独立文件，可以导出和导入功能</p>
+
+        <h3>模块的封装性</h3>
+        <pre>// user.js - 用户管理模块
+let userId = 0; // 私有变量
+
+function generateId() {
+    return ++userId;
+}
+
+export function createUser(name) {
+    return {
+        id: generateId(),
+        name: name,
+        createdAt: new Date()
+    };
+}</pre>
+        <p>说明：模块内部变量和方法默认私有，通过export暴露公共接口</p>
+
+        <h2>2. ES6 模块语法</h2>
+
+        <h3>导出模块</h3>
+        <pre>// utils.js
+export const PI = 3.14159;
+
+export function formatDate(date) {
+    return date.toISOString().split('T')[0];
+}
+
+export default function logger(message) {
+    console.log(`[${new Date().toISOString()}] ${message}`);
+}</pre>
+        <p>说明：使用export关键字导出变量、函数或默认导出</p>
+
+        <h3>导入模块</h3>
+        <pre>import { PI, formatDate } from './utils.js';
+import logger from './utils.js';
+
+// 重命名导入
+import { formatDate as format } from './utils.js';</pre>
+        <p>说明：使用import语句导入其他模块的功能</p>
+
+        <h2>3. 实际应用示例</h2>
+
+        <h3>计算器应用</h3>
+        <pre>// calculator.js
+export class Calculator {
+    constructor() {
+        this.history = [];
+    }
+
+    add(a, b) {
+        const result = a + b;
+        this.history.push(`add(${a}, ${b}) = ${result}`);
+        return result;
+    }
+
+    multiply(a, b) {
+        const result = a * b;
+        this.history.push(`multiply(${a}, ${b}) = ${result}`);
+        return result;
+    }
+
+    getHistory() {
+        return [...this.history];
+    }
+}</pre>
+        <p>说明：创建可复用的计算器类模块</p>
+
+        <h3>配置管理</h3>
+        <pre>// config.js
+const API_URL = 'https://api.example.com';
+const TIMEOUT = 5000;
+
+export const Config = {
+    API_URL,
+    TIMEOUT,
+    getApiUrl(path = '') {
+        return `${API_URL}${path}`;
+    }
+};
+
+export default Config;</pre>
+        <p>说明：集中管理应用的配置信息</p>
+
+        <script type="module">
+            import { add, subtract } from './math-module.js';
+            import logger from './logger-module.js';
+
+            // 使用模块功能
+            console.log('5 + 3 =', add(5, 3));
+            console.log('10 - 4 =', subtract(10, 4));
+
+            logger('模块化示例运行完成');
+        </script>
+    </div>
+</body>
+</html>

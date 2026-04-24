@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 循环语句</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 循环语句</h1>
+    
+    <h2>1. for 循环</h2>
+    
+    <h3>基本 for 循环</h3>
+    <pre>for (let i = 0; i < 5; i++) {
+    console.log(i);
+}</pre>
+    <p>说明：初始化; 条件判断; 增量表达式，常用于已知次数的循环</p>
+    
+    <h3>for...in 循环</h3>
+    <pre>let person = {name: "张三", age: 20};
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}</pre>
+    <p>说明：遍历对象的属性名</p>
+    
+    <h3>for...of 循环</h3>
+    <pre>let fruits = ["苹果", "香蕉", "橙子"];
+for (let fruit of fruits) {
+    console.log(fruit);
+}</pre>
+    <p>说明：遍历数组或可迭代对象的值</p>
+    
+    <h2>2. while 循环</h2>
+    
+    <h3>基本 while 循环</h3>
+    <pre>let count = 0;
+while (count < 3) {
+    console.log(count);
+    count++;
+}</pre>
+    <p>说明：当条件为真时重复执行代码块</p>
+    
+    <h3>do...while 循环</h3>
+    <pre>let num = 0;
+do {
+    console.log(num);
+    num++;
+} while (num < 3);</pre>
+    <p>说明：先执行一次代码，然后检查条件</p>
+    
+    <h2>3. 循环控制语句</h2>
+    
+    <h3>break 语句</h3>
+    <pre>for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break; // 跳出整个循环
+    }
+    console.log(i);
+}</pre>
+    <p>说明：立即终止循环的执行</p>
+    
+    <h3>continue 语句</h3>
+    <pre>for (let i = 0; i < 5; i++) {
+    if (i === 2) {
+        continue; // 跳过本次循环
+    }
+    console.log(i);
+}</pre>
+    <p>说明：跳过当前循环的剩余代码，进入下一次循环</p>
+    
+    <h2>4. 实际应用示例</h2>
+    
+    <h3>求和计算</h3>
+    <pre>let sum = 0;
+for (let i = 1; i <= 10; i++) {
+    sum += i;
+}
+console.log("1到10的和:", sum);</pre>
+    <p>说明：计算1到10的和</p>
+    
+    <h3>查找最大值</h3>
+    <pre>let numbers = [3, 7, 2, 9, 1];
+let max = numbers[0];
+for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+        max = numbers[i];
+    }
+}
+console.log("最大值:", max);</pre>
+    <p>说明：在数组中查找最大值</p>
+    
+    <script>
+        // 循环语句示例
+        console.log("for 循环:");
+        for (let i = 0; i < 3; i++) {
+            console.log(i);
+        }
+        
+        console.log("\nwhile 循环:");
+        let j = 0;
+        while (j < 3) {
+            console.log(j);
+            j++;
+        }
+        
+        console.log("\ndo...while 循环:");
+        let k = 0;
+        do {
+            console.log(k);
+            k++;
+        } while (k < 3);
+        
+        console.log("\n数组遍历:");
+        let colors = ["红色", "绿色", "蓝色"];
+        for (let color of colors) {
+            console.log(color);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 异步编程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #result {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            min-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            #result {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 异步编程</h1>
+    
+    <h2>1. 回调函数（Callback）</h2>
+    
+    <h3>基本回调模式</h3>
+    <pre>function fetchData(callback) {
+    setTimeout(() => {
+        callback("数据获取成功");
+    }, 1000);
+}
+
+fetchData(function(result) {
+    console.log(result);
+});</pre>
+    <p>说明：将函数作为参数传递，在异步操作完成后调用</p>
+    
+    <h3>回调地狱问题</h3>
+    <pre>getData(function(data1) {
+    processData(data1, function(result1) {
+        finalProcess(result1, function(finalResult) {
+            console.log(finalResult);
+        });
+    });
+});</pre>
+    <p>说明：多个异步操作嵌套导致的代码难以维护</p>
+    
+    <h2>2. Promise对象</h2>
+    
+    <h3>创建Promise</h3>
+    <pre>let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (Math.random() > 0.5) {
+            resolve("操作成功");
+        } else {
+            reject("操作失败");
+        }
+    }, 1000);
+});
+
+promise.then(result => {
+    console.log(result);
+}).catch(error => {
+    console.log(error);
+});</pre>
+    <p>说明：Promise表示一个可能在未来完成的操作</p>
+    
+    <h3>链式调用</h3>
+    <pre>fetchData()
+    .then(data => processData(data))
+    .then(result => finalProcess(result))
+    .then(finalResult => console.log(finalResult))
+    .catch(error => console.log("错误:", error));</pre>
+    <p>说明：使用then和catch方法处理异步结果</p>
+    
+    <h2>3. async/await语法</h2>
+    
+    <h3>async函数</h3>
+    <pre>async function getData() {
+    try {
+        let result = await fetchData();
+        console.log(result);
+    } catch (error) {
+        console.log("错误:", error);
+    }
+}</pre>
+    <p>说明：async函数返回Promise，可以使用await等待结果</p>
+    
+    <h3>await表达式</h3>
+    <pre>async function processMultiple() {
+    let data1 = await fetchData1();
+    let data2 = await fetchData2(data1);
+    return processFinal(data2);
+}</pre>
+    <p>说明：await只能在async函数中使用，暂停执行直到Promise完成</p>
+    
+    <h2>4. 实际应用示例</h2>
+    
+    <h3>模拟API请求</h3>
+    <pre>function apiCall(url) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(`从 ${url} 获取的数据`);
+        }, Math.random() * 2000 + 500);
+    });
+}</pre>
+    <p>说明：模拟网络请求的异步操作</p>
+    
+    <h3>并发请求</h3>
+    <pre>async function fetchAllData() {
+    let [data1, data2, data3] = await Promise.all([
+        apiCall("api/users"),
+        apiCall("api/posts"), 
+        apiCall("api/comments")
+    ]);
+    return { users: data1, posts: data2, comments: data3 };
+}</pre>
+    <p>说明：使用Promise.all并行执行多个异步操作</p>
+    
+    <button onclick="loadData()">加载数据</button>
+    <div id="result"></div>
+    
+    <script>
+        // Promise示例
+        function fetchData() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve("数据加载完成");
+                }, 1500);
+            });
+        }
+        
+        function loadData() {
+            document.getElementById("result").innerHTML = "加载中...";
+            
+            fetchData()
+                .then(result => {
+                    document.getElementById("result").innerHTML = result;
+                })
+                .catch(error => {
+                    document.getElementById("result").innerHTML = "错误: " + error;
+                });
+        }
+        
+        // async/await示例
+        async function loadWithAwait() {
+            try {
+                let result = await fetchData();
+                document.getElementById("result").innerHTML = result;
+            } catch (error) {
+                document.getElementById("result").innerHTML = "错误: " + error;
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>

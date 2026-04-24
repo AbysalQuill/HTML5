@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 错误处理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        #result {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            min-height: 50px;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 错误处理</h1>
+    
+    <h2>1. try...catch语句</h2>
+    
+    <h3>基本语法</h3>
+    <pre>try {
+    // 可能出错的代码
+    let result = riskyOperation();
+    console.log("结果:", result);
+} catch (error) {
+    // 处理错误
+    console.log("发生错误:", error.message);
+}</pre>
+    <p>说明：try块中的代码如果出错，控制权会转移到catch块</p>
+    
+    <h3>捕获特定类型错误</h3>
+    <pre>try {
+    let obj = null;
+    console.log(obj.property); // 会抛出TypeError
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.log("类型错误:", error.message);
+    } else if (error instanceof ReferenceError) {
+        console.log("引用错误:", error.message);
+    } else {
+        console.log("其他错误:", error.message);
+    }
+}</pre>
+    <p>说明：可以根据不同类型的错误进行不同的处理</p>
+    
+    <h2>2. finally子句</h2>
+    
+    <h3>总是执行的代码</h3>
+    <pre>try {
+    // 可能出错的代码
+} catch (error) {
+    // 错误处理
+} finally {
+    // 无论是否出错都会执行
+    console.log("清理工作完成");
+    // 比如关闭文件、释放资源等
+}</pre>
+    <p>说明：finally块中的代码无论是否出错都会执行</p>
+    
+    <h2>3. throw语句</h2>
+    
+    <h3>手动抛出错误</h3>
+    <pre>function validateAge(age) {
+    if (age < 0 || age > 150) {
+        throw new Error("年龄必须在0-150之间");
+    }
+    return age;
+}
+
+try {
+    validateAge(-5);
+} catch (error) {
+    console.log("验证失败:", error.message);
+}</pre>
+    <p>说明：使用throw关键字手动抛出异常</p>
+    
+    <h3>自定义错误类型</h3>
+    <pre>class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "ValidationError";
+    }
+}
+
+function checkEmail(email) {
+    if (!email.includes("@")) {
+        throw new ValidationError("邮箱格式不正确");
+    }
+}</pre>
+    <p>说明：可以创建自定义的错误类来更好地组织错误处理</p>
+    
+    <h2>4. Promise错误处理</h2>
+    
+    <h3>Promise.catch()</h3>
+    <pre>fetchData()
+    .then(result => processResult(result))
+    .then(finalResult => console.log(finalResult))
+    .catch(error => {
+        console.log("Promise错误:", error);
+    });</pre>
+    <p>说明：Promise链式的错误处理方式</p>
+    
+    <h3>async/await中的错误处理</h3>
+    <pre>async function getData() {
+    try {
+        let data = await fetchData();
+        return processData(data);
+    } catch (error) {
+        console.log("获取数据失败:", error);
+        throw error; // 重新抛出或返回默认值
+    }
+}</pre>
+    <p>说明：在async函数中使用try-catch处理异步错误</p>
+    
+    <h2>5. 实际应用示例</h2>
+    
+    <h3>表单验证</h3>
+    <pre>function validateForm(formData) {
+    if (!formData.username) {
+        throw new Error("用户名不能为空");
+    }
+    if (formData.password.length < 6) {
+        throw new Error("密码长度至少6位");
+    }
+    return true;
+}</pre>
+    <p>说明：在表单提交时进行验证并抛出相应的错误</p>
+    
+    <h3>API调用错误处理</h3>
+    <pre>async function apiCall(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP错误! 状态: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("API调用失败:", error);
+        return null;
+    }
+}</pre>
+    <p>说明：网络请求时的完整错误处理流程</p>
+    
+    <button onclick="riskyOperation()">执行可能出错的操作</button>
+    <div id="result"></div>
+    
+    <script>
+        function riskyOperation() {
+            document.getElementById("result").innerHTML = "";
+            
+            try {
+                // 模拟一个可能出错的操作
+                let value = parseInt(document.getElementById("input").value);
+                
+                if (isNaN(value)) {
+                    throw new Error("请输入有效的数字");
+                }
+                
+                if (value < 0) {
+                    throw new RangeError("数值不能为负数");
+                }
+                
+                let result = 100 / value;
+                document.getElementById("result").innerHTML = 
+                    `计算结果: ${result}`;
+                    
+            } catch (error) {
+                if (error instanceof RangeError) {
+                    document.getElementById("result").innerHTML = 
+                        `<span style="color: red;">范围错误: ${error.message}</span>`;
+                } else {
+                    document.getElementById("result").innerHTML = 
+                        `<span style="color: red;">错误: ${error.message}</span>`;
+                }
+            } finally {
+                console.log("操作完成");
+            }
+        }
+        
+        // Promise错误处理示例
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() > 0.5) {
+                        resolve("数据加载成功");
+                    } else {
+                        reject(new Error("网络连接失败"));
+                    }
+                }, 1000);
+            });
+        }
+    </script>
+    
+    <input type="text" id="input" placeholder="输入数字">
+    </div>
+</body>
+</html>

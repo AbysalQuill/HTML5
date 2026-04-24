@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 数组</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 数组</h1>
+    
+    <h2>1. 创建数组</h2>
+    
+    <h3>字面量创建</h3>
+    <pre>let fruits = ["苹果", "香蕉", "橙子"];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = ["文本", 123, true, null];</pre>
+    <p>说明：使用方括号[]创建数组，元素可以是不同类型</p>
+    
+    <h3>构造函数创建</h3>
+    <pre>let fruits = new Array("苹果", "香蕉", "橙子");
+let numbers = new Array(1, 2, 3, 4, 5);</pre>
+    <p>说明：使用Array构造函数创建数组</p>
+    
+    <h2>2. 数组操作</h2>
+    
+    <h3>访问元素</h3>
+    <pre>let fruits = ["苹果", "香蕉", "橙子"];
+console.log(fruits[0]); // "苹果"
+console.log(fruits.length); // 3</pre>
+    <p>说明：通过索引访问数组元素，索引从0开始</p>
+    
+    <h3>修改元素</h3>
+    <pre>fruits[1] = "葡萄";
+console.log(fruits); // ["苹果", "葡萄", "橙子"]</pre>
+    <p>说明：通过索引修改数组元素的值</p>
+    
+    <h3>添加元素</h3>
+    <pre>fruits.push("西瓜"); // 末尾添加
+fruits.unshift("芒果"); // 开头添加
+console.log(fruits); // ["芒果", "苹果", "葡萄", "橙子", "西瓜"]</pre>
+    <p>说明：push在末尾添加，unshift在开头添加</p>
+    
+    <h3>删除元素</h3>
+    <pre>fruits.pop(); // 删除末尾元素
+fruits.shift(); // 删除开头元素
+fruits.splice(1, 1); // 从索引1开始删除1个元素</pre>
+    <p>说明：pop删除末尾，shift删除开头，splice删除指定位置</p>
+    
+    <h2>3. 数组方法</h2>
+    
+    <h3>遍历数组</h3>
+    <pre>// forEach - 遍历每个元素
+fruits.forEach(function(item) {
+    console.log(item);
+});
+
+// map - 映射新数组
+let upperFruits = fruits.map(function(item) {
+    return item.toUpperCase();
+});</pre>
+    <p>说明：forEach遍历，map创建新数组</p>
+    
+    <h3>查找元素</h3>
+    <pre>// find - 找到第一个符合条件的元素
+let firstApple = fruits.find(function(item) {
+    return item === "苹果";
+});
+
+// filter - 过滤符合条件的元素
+let shortFruits = fruits.filter(function(item) {
+    return item.length <= 2;
+});</pre>
+    <p>说明：find返回第一个匹配项，filter返回所有匹配项</p>
+    
+    <h3>其他常用方法</h3>
+    <pre>// slice - 截取数组
+let subArray = fruits.slice(1, 3);
+
+// concat - 合并数组
+let combined = fruits.concat(numbers);
+
+// sort - 排序
+let sortedNumbers = numbers.sort((a, b) => a - b);</pre>
+    <p>说明：slice截取部分，concat合并数组，sort排序</p>
+    
+    <script>
+        // 数组示例
+        let fruits = ["苹果", "香蕉", "橙子"];
+        console.log("原始数组:", fruits);
+        
+        // 添加元素
+        fruits.push("西瓜");
+        fruits.unshift("芒果");
+        console.log("添加后:", fruits);
+        
+        // 遍历
+        fruits.forEach(function(item) {
+            console.log("水果:", item);
+        });
+        
+        // map
+        let upperFruits = fruits.map(function(item) {
+            return item.toUpperCase();
+        });
+        console.log("大写:", upperFruits);
+    </script>
+</body>
+</html>

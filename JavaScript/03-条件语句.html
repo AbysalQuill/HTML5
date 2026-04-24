@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 条件语句</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 条件语句</h1>
+    
+    <h2>1. if 语句</h2>
+    
+    <h3>基本 if 语句</h3>
+    <pre>if (condition) {
+    // 条件为真时执行的代码
+}</pre>
+    <p>说明：当条件为true时执行代码块</p>
+    
+    <h3>if...else 语句</h3>
+    <pre>if (condition) {
+    // 条件为真时执行的代码
+} else {
+    // 条件为假时执行的代码
+}</pre>
+    <p>说明：根据条件真假执行不同的代码块</p>
+    
+    <h3>if...else if...else 语句</h3>
+    <pre>if (condition1) {
+    // 条件1为真时执行
+} else if (condition2) {
+    // 条件2为真时执行
+} else {
+    // 所有条件都为假时执行
+}</pre>
+    <p>说明：用于多个条件的判断</p>
+    
+    <h2>2. switch 语句</h2>
+    
+    <h3>基本 switch 语句</h3>
+    <pre>switch (expression) {
+    case value1:
+        // 代码
+        break;
+    case value2:
+        // 代码
+        break;
+    default:
+        // 默认代码
+}</pre>
+    <p>说明：根据表达式的值执行对应的case代码块</p>
+    
+    <h2>3. 三元运算符</h2>
+    
+    <h3>条件 ? 值1 : 值2</h3>
+    <pre>let result = (age >= 18) ? "成年人" : "未成年人";</pre>
+    <p>说明：简洁的条件表达式，条件为真返回值1，否则返回值2</p>
+    
+    <h2>4. 实际应用示例</h2>
+    
+    <h3>成绩等级判断</h3>
+    <pre>let score = 85;
+let grade;
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else if (score >= 60) {
+    grade = "D";
+} else {
+    grade = "F";
+}</pre>
+    <p>说明：根据分数判断等级</p>
+    
+    <h3>星期判断</h3>
+    <pre>let day = 3;
+let dayName;
+switch (day) {
+    case 1: dayName = "星期一"; break;
+    case 2: dayName = "星期二"; break;
+    case 3: dayName = "星期三"; break;
+    case 4: dayName = "星期四"; break;
+    case 5: dayName = "星期五"; break;
+    case 6: dayName = "星期六"; break;
+    case 7: dayName = "星期日"; break;
+    default: dayName = "无效的星期";
+}</pre>
+    <p>说明：根据数字判断星期几</p>
+    
+    <script>
+        // 条件语句示例
+        console.log("if 语句示例:");
+        let age = 20;
+        if (age >= 18) {
+            console.log("您是成年人");
+        } else {
+            console.log("您是未成年人");
+        }
+        
+        console.log("\nswitch 语句示例:");
+        let day = 4;
+        let dayName;
+        switch (day) {
+            case 1: dayName = "星期一"; break;
+            case 2: dayName = "星期二"; break;
+            case 3: dayName = "星期三"; break;
+            case 4: dayName = "星期四"; break;
+            case 5: dayName = "星期五"; break;
+            case 6: dayName = "星期六"; break;
+            case 7: dayName = "星期日"; break;
+            default: dayName = "无效的星期";
+        }
+        console.log(`今天是${dayName}`);
+        
+        console.log("\n三元运算符示例:");
+        let isMember = true;
+        let price = isMember ? 100 : 200;
+        console.log(`价格: ${price}元`);
+    </script>
+    </div>
+</body>
+</html>

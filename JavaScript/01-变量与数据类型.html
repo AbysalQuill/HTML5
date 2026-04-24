@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 变量与数据类型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 变量与数据类型</h1>
+    
+    <h2>1. 变量声明</h2>
+    
+    <h3>let 声明</h3>
+    <pre>let username = "张三";</pre>
+    <p>说明：let用于声明可重新赋值的变量</p>
+    
+    <h3>const 声明</h3>
+    <pre>const PI = 3.14;</pre>
+    <p>说明：const用于声明常量，不能重新赋值</p>
+    
+    <h3>var 声明（传统方式）</h3>
+    <pre>var age = 18;</pre>
+    <p>说明：var是ES5的变量声明方式，作用域不同</p>
+    
+    <h2>2. 数据类型</h2>
+    
+    <h3>字符串 (String)</h3>
+    <pre>let username = "张三";</pre>
+    <p>说明：用于表示文本数据，使用单引号或双引号</p>
+    
+    <h3>数字 (Number)</h3>
+    <pre>let age = 18;
+let price = 99.99;</pre>
+    <p>说明：包括整数和小数，JavaScript只有一种数字类型</p>
+    
+    <h3>布尔值 (Boolean)</h3>
+    <pre>let isStudent = true;
+let isAdult = false;</pre>
+    <p>说明：表示真或假，常用于条件判断</p>
+    
+    <h3>空值 (null)</h3>
+    <pre>let score = null;</pre>
+    <p>说明：表示空值或无值，typeof返回"object"</p>
+    
+    <h3>未定义 (undefined)</h3>
+    <pre>let address;</pre>
+    <p>说明：声明但未赋值的变量，值自动为undefined</p>
+    
+    <h2>3. 复杂数据类型</h2>
+    
+    <h3>数组 (Array)</h3>
+    <pre>let hobbies = ["读书", "运动", "音乐"];</pre>
+    <p>说明：用于存储多个值的列表，从0开始索引</p>
+    
+    <h3>对象 (Object)</h3>
+    <pre>let person = {name: "李四", age: 20};</pre>
+    <p>说明：用于存储键值对，表示复杂数据结构</p>
+    
+    <h2>4. 变量重新赋值</h2>
+    <pre>age = 19; // 正确
+// PI = 3.14159; // 错误: const不能重新赋值</pre>
+    <p>说明：let声明的变量可以重新赋值，const声明的常量不能</p>
+    
+    <h2>5. 查看输出</h2>
+    <p>打开控制台查看输出，浏览器按F12</p>
+    <script>
+        let username="张三";
+        let age=18;
+        const PI=3.14;
+        let isStudent=true;
+        let score=null;
+        let address;
+        let hobbies=["读书","运动","音乐"];
+        let person={name:"李四",age:20};
+        
+        console.log("字符串:",username);
+        console.log("数字:",age);
+        console.log("常量:",PI);
+        console.log("布尔值:",isStudent);
+        console.log("空值:",score);
+        console.log("未定义:",address);
+        console.log("数组:",hobbies);
+        console.log("对象:",person);
+        
+        age=19;
+        console.log("修改后age:",age);
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 运算符</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JavaScript 运算符</h1>
+    
+    <h2>1. 算术运算符</h2>
+    
+    <h3>加法 +</h3>
+    <pre>let sum = 5 + 3; // 8</pre>
+    <p>说明：用于数字相加或字符串连接</p>
+    
+    <h3>减法 -</h3>
+    <pre>let diff = 10 - 4; // 6</pre>
+    <p>说明：用于数字相减</p>
+    
+    <h3>乘法 *</h3>
+    <pre>let product = 6 * 7; // 42</pre>
+    <p>说明：用于数字相乘</p>
+    
+    <h3>除法 /</h3>
+    <pre>let quotient = 20 / 4; // 5</pre>
+    <p>说明：用于数字相除</p>
+    
+    <h3>取余 %</h3>
+    <pre>let remainder = 10 % 3; // 1</pre>
+    <p>说明：返回除法后的余数</p>
+    
+    <h3>递增 ++</h3>
+    <pre>let x = 5;
+x++; // 6</pre>
+    <p>说明：变量值增加1</p>
+    
+    <h3>递减 --</h3>
+    <pre>let y = 10;
+y--; // 9</pre>
+    <p>说明：变量值减少1</p>
+    
+    <h2>2. 赋值运算符</h2>
+    
+    <h3>简单赋值 =</h3>
+    <pre>let x = 10;</pre>
+    <p>说明：将右值赋给左变量</p>
+    
+    <h3>复合赋值 +=, -=, *=, /=</h3>
+    <pre>x += 5; // 相当于 x = x + 5</pre>
+    <p>说明：运算后赋值，简写形式</p>
+    
+    <h2>3. 比较运算符</h2>
+    
+    <h3>相等 ==</h3>
+    <pre>5 == "5"; // true</pre>
+    <p>说明：比较值是否相等，忽略类型转换</p>
+    
+    <h3>严格相等 ===</h3>
+    <pre>5 === "5"; // false</pre>
+    <p>说明：比较值和类型是否都相等</p>
+    
+    <h3>不相等 !=</h3>
+    <pre>5 != "5"; // false</pre>
+    <p>说明：比较值是否不相等</p>
+    
+    <h3>严格不相等 !==</h3>
+    <pre>5 !== "5"; // true</pre>
+    <p>说明：比较值或类型是否不相等</p>
+    
+    <h3>大于 >, 小于 <</h3>
+    <pre>10 > 5; // true
+5 < 10; // true</pre>
+    <p>说明：比较数值大小</p>
+    
+    <h3>大于等于 >=, 小于等于 <=</h3>
+    <pre>10 >= 10; // true
+5 <= 4; // false</pre>
+    <p>说明：比较数值大小，包含等于情况</p>
+    
+    <h2>4. 逻辑运算符</h2>
+    
+    <h3>与 &&</h3>
+    <pre>true && true; // true
+true && false; // false</pre>
+    <p>说明：两个条件都为真时返回真</p>
+    
+    <h3>或 ||</h3>
+    <pre>true || false; // true
+false || false; // false</pre>
+    <p>说明：至少一个条件为真时返回真</p>
+    
+    <h3>非 !</h3>
+    <pre>!true; // false
+!false; // true</pre>
+    <p>说明：反转布尔值</p>
+    
+    <h2>5. 字符串运算符</h2>
+    
+    <h3>字符串连接 +</h3>
+    <pre>let message = "Hello" + " " + "World"; // "Hello World"</pre>
+    <p>说明：使用+号连接字符串</p>
+    
+    <h3>模板字符串</h3>
+    <pre>let name = "张三";
+let greeting = `你好, ${name}!`; // "你好, 张三!"</pre>
+    <p>说明：使用反引号和${}插入变量</p>
+    
+    <script>
+        // 运算符示例
+        console.log("算术运算符:");
+        console.log("5 + 3 =", 5 + 3);
+        console.log("10 - 4 =", 10 - 4);
+        console.log("6 * 7 =", 6 * 7);
+        console.log("20 / 4 =", 20 / 4);
+        console.log("10 % 3 =", 10 % 3);
+        
+        console.log("\n比较运算符:");
+        console.log("5 == '5':", 5 == "5");
+        console.log("5 === '5':", 5 === "5");
+        console.log("10 > 5:", 10 > 5);
+        
+        console.log("\n逻辑运算符:");
+        console.log("true && false:", true && false);
+        console.log("true || false:", true || false);
+        console.log("!true:", !true);
+    </script>
+    </div>
+</body>
+</html>

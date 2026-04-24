@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            letter-spacing: 0.3px;
+            tab-size: 4;
+            border: 1px solid #3e3e3e;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+
+        p {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #2d3748;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript 对象</h1>
+    
+    <h2>1. 创建对象</h2>
+    
+    <h3>字面量创建</h3>
+    <pre>let person = {
+    name: "张三",
+    age: 25,
+    city: "北京"
+};</pre>
+    <p>说明：使用花括号{}创建对象，键值对形式</p>
+    
+    <h3>构造函数创建</h3>
+    <pre>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+let person = new Person("李四", 30);</pre>
+    <p>说明：使用构造函数创建对象实例</p>
+    
+    <h3>ES6类语法</h3>
+    <pre>class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+let person = new Person("王五", 28);</pre>
+    <p>说明：ES6引入的面向对象语法</p>
+    
+    <h2>2. 访问属性</h2>
+    
+    <h3>点表示法</h3>
+    <pre>console.log(person.name);
+console.log(person.age);</pre>
+    <p>说明：使用点号.访问对象的属性</p>
+    
+    <h3>方括号表示法</h3>
+    <pre>console.log(person["name"]);
+console.log(person["age"]);</pre>
+    <p>说明：使用方括号[]访问对象的属性</p>
+    
+    <h2>3. 添加和删除属性</h2>
+    
+    <h3>添加属性</h3>
+    <pre>person.city = "上海";
+person["email"] = "zhang@example.com";</pre>
+    <p>说明：动态添加新属性到对象中</p>
+    
+    <h3>删除属性</h3>
+    <pre>delete person.city;
+delete person["email"];</pre>
+    <p>说明：使用delete关键字删除对象属性</p>
+    
+    <h2>4. 对象方法</h2>
+    
+    <h3>在对象内定义方法</h3>
+    <pre>let calculator = {
+    add: function(a, b) {
+        return a + b;
+    },
+    multiply: function(a, b) {
+        return a * b;
+    }
+};</pre>
+    <p>说明：在对象内部定义函数作为方法</p>
+    
+    <h3>箭头函数方法（注意this绑定）</h3>
+    <pre>let car = {
+    brand: "Toyota",
+    start: () => {
+        console.log(this.brand + "发动了");
+    }
+};</pre>
+    <p>说明：箭头函数的this指向定义时的上下文</p>
+    
+    <h2>5. 遍历对象</h2>
+    
+    <h3>for...in 循环</h3>
+    <pre>for (let key in person) {
+    console.log(key + ": " + person[key]);
+}</pre>
+    <p>说明：遍历对象的属性名</p>
+    
+    <h3>Object.keys() / Object.values()</h3>
+    <pre>let keys = Object.keys(person);
+let values = Object.values(person);
+console.log("属性:", keys);
+console.log("值:", values);</pre>
+    <p>说明：获取对象的所有键或值</p>
+    
+    <script>
+        // 对象示例
+        let person = {
+            name: "张三",
+            age: 25,
+            greet: function() {
+                console.log("你好, 我是" + this.name);
+            }
+        };
+        
+        console.log("姓名:", person.name);
+        console.log("年龄:", person.age);
+        
+        // 添加新属性
+        person.city = "北京";
+        console.log("城市:", person.city);
+        
+        // 调用方法
+        person.greet();
+        
+        // 遍历对象
+        for (let key in person) {
+            if (typeof person[key] !== 'function') {
+                console.log(key + ": " + person[key]);
+            }
+        }
+    </script>
+</body>
+</html>
